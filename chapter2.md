@@ -60,15 +60,62 @@ end
 
 ## 変数名に大切な情報を付与する
 
+社内システムより。月間勤務時間を算出するメソッド。
+このメソッド名に、本文と同じパターンで必要な情報を付与してみよう。
+
 ```
+def total_work_time
+  @attendances.to_a.sum(&:working_minute)
+end
+
 ```
 
 ## スコープの大きな変数には長い名前をつける
 
+javascriptのような言語では特に気をつけよう。
 ```
+var f = false;
+$(function(){
+  var $btn = $('.show-dialog')
+
+  $btn.click(function(){
+    if(f) {
+      // 既にダイアログを表示していたら、今表示しているデータを消していいか尋ねる...
+      ...
+    }else{
+      // ダイアログを表示する
+      ...
+      f = true;
+    }
+  });
+});
 ```
 
 ## 大文字やアンダースコアなどに意味を含める
 
+jQueryを使ったコードだ。
+jQueryオブジェクトには$をつけよう。
 ```
+function loadScoreTable(){
+  var table = $('#score-table');
+
+  $.getJSON('http://...', {time: new Date()}, function(data){
+
+    var sum = 0, count = 0;
+    $.each(data.rows, function(i,v){
+      var tr = $('<tr/>');
+      tr.append($('<td/>').text(v.name));
+      tr.append($('<td/>').text(v.score + '点'));
+      table.append(tr);
+
+      count ++;
+      sum += v.score;
+    });
+
+    var tr_total = $('<tr/>');
+    tr_total.append($('<td/>').text(count + '件'));
+    tr_total.append($('<td/>').text('合計' + sum + '点');
+    table.append(tr_total);
+  });
+}
 ```
