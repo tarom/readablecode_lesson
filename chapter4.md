@@ -42,10 +42,10 @@ let(:nursery_class_viola) {
 
 ```haml
 %form(action="/post")
-  input(type="text" name="name")
-  input(type="text" name="address")
-  input(type="text" name="telephone")
-  input(type="text" name="email")
+  %input(type="text" name="name")
+  %input(type="text" name="address")
+  %input(type="text" name="telephone")
+  %input(type="text" name="email")
 ```
 
 ### 直したいコード
