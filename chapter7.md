@@ -1,15 +1,15 @@
 リーダルブルコード勉強会
 
-# 4章 美しさ
+# 7章 美しさ
 
 ## 問題1. if 文の順番
 
 ```ruby
 def welcome_message
   if not user.admin?
-    "ドーモ、#{user.name}＝サン。あなたは管理者です。"
-  else
     "こんにちは、#{user.name}さん。"
+  else
+    "ドーモ、#{user.name}＝サン。あなたは管理者です。"
   end
 end
 ```
